@@ -12,12 +12,79 @@ public class MyAccountPage extends TestBase {
 		PageFactory.initElements(webDriver, this);
 	}
 
-	@FindBy(css = "#content h2")
-	private WebElement myaccountText;
+	
+	@FindBy(css="#menu > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li:nth-child(6) > a")
+	private WebElement PhonePDA;
+	
+	
+	@FindBy(css="#content > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div.caption > h4 > a")
+	private WebElement iphone;
+	
+	@FindBy(css="#button-cart")
+	private WebElement addtocart;
+		
+	@FindBy(css="#product-product > div.alert.alert-success.alert-dismissible")
+	private WebElement productaddsuccessalert;
 
-	public String getTextFromMyAccount() {
-		return myaccountText.getText();
-	}
+	@FindBy(css = "#cart-total")
+	private WebElement productPriceAddedToCart;
+	
+	@FindBy(css="#top-links > ul > li:nth-child(5) > a > span")
+	private WebElement checkout;
+	
+	
+public void selectPhoneandPda(){
+	PhonePDA.click();
+}
 
+public void productselection() {
+	iphone.click();
+}
+
+public void  addProductToCart() {
+
+addtocart.click();
+	
+}
+
+public String totalPrice() {
+return productPriceAddedToCart.getText();
+}
+
+
+//public void getSuccessText1() {
+//	System.out.println(productaddsuccessalert.getText());
+//}
+
+public String getSuccessText() {
+	return productaddsuccessalert.getText();
+}
+
+
+public CheckOutPage checkOutBtn() {
+	checkout.click();
+	return new CheckOutPage();
+	
+}
+
+//public CheckOutPage addcart() {
+//	addtocart.click();
+//	return new CheckOutPage();
+	
+
+public CheckOutPage itemtocart() {
+selectPhoneandPda();
+productselection();
+addProductToCart();
+totalPrice();
+getSuccessText();
+return checkOutBtn();
+
+//addcart();
+//getSuccessText1(); // This will show the result in console
+	
+}
 
 }
+
+

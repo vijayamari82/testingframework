@@ -5,24 +5,28 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.naveeenautomation.base.TestBase;
-import com.naveenautomation.Pages.AccountLogin;
 import com.naveenautomation.Pages.YourStorePage;
 
 public class YourStoreTest extends TestBase {
 
 YourStorePage yp;
-AccountLogin accountLogin;
+//AccountLogin accountLogin;  // an object is been created for the next page account login
 
 @BeforeMethod
 public void startBorwserSession() {
 	intialization();
-	yp = new YourStorePage();
+	yp = new YourStorePage(); // initialization of the object yp for the Your Store Page  is done here
 }
 
-@Test()
-public void testSomething() {
+
+// here why we are not testing for clicklogin function
+
+@Test
+public void testSomething()
+{
 	yp.clickMyAccountBtn();
 }
+
 
 @AfterMethod
 public void quitBrowserSession() {
@@ -31,21 +35,3 @@ public void quitBrowserSession() {
 
 }
 
-//public class YourStoreTest extends TestBase {
-//YourStorePage yp;
-//AccountLogin accountLogin;   
-//
-//
-//@BeforeMethod
-//public void startBrowserSession() {
-//	intialization();
-//	yp=new YourStorePage();
-//}
-//
-//@Test
-//
-//public void testSomething() 
-//{
-//	yp.clickMyAccountBtn();
-//}
-//}
